@@ -1,2 +1,2 @@
-# PrecondtionerAI
+# PreconditionerAI
 Work in progress...
