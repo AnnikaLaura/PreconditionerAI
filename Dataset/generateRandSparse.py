@@ -6,8 +6,6 @@ from scipy.sparse import dok_matrix , csc_matrix , identity , linalg
 from my_utils import timeit
 import logging
 
-logging.basicConfig(level=logging.DEBUG , format='[%(asctime)s] - [%(levelname)s] - %(message)s')
-
 # reference: https://en.wikipedia.org/wiki/Jacobi_rotation
 def jacobiRotation(dim):
     l = randint(0,dim-1)
@@ -69,7 +67,9 @@ class CustomSparse:
 
 
 if __name__ == "__main__":
-    # main function in python
+    logging.basicConfig(level=logging.DEBUG , format='[%(asctime)s] - [%(levelname)s] - %(message)s')
+
+    # creating a test object
     custom = CustomSparse(10000,0.001)
     custom.create([1,99999999])
-    print((custom.invert().dot(custom.A)-identity(custom.dim)).max())
+    logging.debug((custom.invert().dot(custom.A)-identity(custom.dim)).max())
